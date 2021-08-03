@@ -1,16 +1,11 @@
 'use strict'
 
 const merge = require('webpack-merge')
-const {
-  environment,
-  target,
-  addAnalyzer,
-  hasTypescript
-} = require('./webpack.vars')
+const { environment, target, addAnalyzer } = require('./webpack.vars')
 
 const configs = [
   require('./webpack.config.base'),
-  hasTypescript ? require('./webpack.config.typescript') : null,
+  require('./webpack.config.typescript'),
   require('./webpack.config.chunks'),
   require('./webpack.config.react'),
   require('./webpack.config.eslint'),
@@ -25,7 +20,7 @@ const configs = [
   require('./webpack.config.duplicates'),
   addAnalyzer ? require('./webpack.config.analyzer') : null,
   require('./webpack.config.services'),
-  require(`./webpack.target.${target}`),
+  require(`./webpack.target.${target}`)
 ]
 
 if (environment === 'production') {

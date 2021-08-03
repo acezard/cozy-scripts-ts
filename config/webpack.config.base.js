@@ -11,8 +11,7 @@ const {
   isDebugMode,
   getCSSLoader,
   getFilename,
-  getEnabledFlags,
-  hasTypescript
+  getEnabledFlags
 } = require('./webpack.vars')
 const production = environment === 'production'
 
@@ -21,12 +20,7 @@ module.exports = {
     // It's important that node_modules here is kept relative so that
     // inner node_modules are checked before checking the app node_modules
     modules: [paths.appSrc(), 'node_modules', paths.appNodeModules()],
-    extensions: [
-      ...(hasTypescript ? ['.ts', '.tsx'] : []),
-      '.js',
-      '.json',
-      '.css'
-    ],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.css'],
     // linked package will still be see as a node_modules package
     symlinks: false
   },
