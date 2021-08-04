@@ -49,3 +49,4 @@ mobile/Preview.html
 # Default
 # /!\ KEEP THIS SECTION THE LAST ONE
 !.gitkeep
+node_modules
